@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "4eb9356d-64d2-4e01-a0f0-fa922f78dd56"
+      }
+    },
+    "owner": "ikiddoi"
   }
 }
