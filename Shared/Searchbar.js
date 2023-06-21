@@ -1,14 +1,11 @@
 import { View } from "native-base"
 import { useContext, useEffect, useState } from "react"
-import styled from "styled-components/native";
 import { Searchbar } from "react-native-paper";
-import { SearchContext } from "../context/SearchContext";
+import { SearchContext } from "../context/search/SearchContext";
+import styled from "styled-components/native";
 
 const SearchContainer = styled.View`
-  padding: ${(props) => props.theme.space[3]};
-  position: absolute;
-  z-index: 999;
-  width: 100%;
+padding: ${(props) => props.theme.space[3]};
 `;
 
 

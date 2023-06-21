@@ -6,6 +6,8 @@ export const SearchContext = React.createContext();
 export const SearchContextProvider = ({children}) => {
     const [keyword, setKeyword] = useState("Amsterdam");
     const [isLoading, setIsLoading] = useState(false);
+    const [location, setLocation] = useState("");
+    const [searchPagingParameters, setSearchPagingParameters] = useState("");
     const [error,setError] = useState(null);
 
     const onSearch = (searchKeyword) => {
@@ -22,7 +24,7 @@ export const SearchContextProvider = ({children}) => {
     }, [keyword])
     
     return (
-        <SearchContext.Provider value={{isLoading, keyword, error, onSearch}}>
+        <SearchContext.Provider value={{isLoading, keyword, error, onSearch, location,setLocation, setError, searchPagingParameters, setSearchPagingParameters }}>
         {children}
         </SearchContext.Provider>
     )

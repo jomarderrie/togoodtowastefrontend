@@ -3,8 +3,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import HomeNavigator from "./HomeNavigator";
-import { RestaurantContext } from "../context/RestaurantsContext";
-import { SearchContext, SearchContextProvider } from "../context/SearchContext";
+import { RestaurantContext } from "../context/store/StoreContext";
+import { SearchContextProvider } from "../context/search/SearchContext";
 
 const Tab = createBottomTabNavigator();
 

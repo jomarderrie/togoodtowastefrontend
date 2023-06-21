@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 import { FlatList } from "react-native";
 import { Button } from "react-native-paper";
-import { colors } from "../../../infrastructure/theme/colors";
+import { colors } from "../../../shared/theme/colors";
 
 export const RestaurantList = styled(FlatList).attrs({
   contentContainerStyle: {

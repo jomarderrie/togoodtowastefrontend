@@ -6,7 +6,7 @@ import Error from "../../shared/Error";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import axios from "axios";
 import EasyButton from "../../shared/StyleComponents/EasyButton";
-import {registerUser} from "../../functions/User";
+import {registerUser} from "../../context/users/User";
 import Toast from "react-native-toast-message";
 
 const Register = (props) => {

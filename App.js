@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import {UsersContext} from "./context/UsersContext";
+import {UsersContext} from "./context/users/UsersContext";
 import { ThemeProvider } from "styled-components/native";
 import {
   useFonts as useOswald,

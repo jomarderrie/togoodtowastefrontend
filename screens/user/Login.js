@@ -6,8 +6,8 @@ import Error from "../../shared/Error";
 import Toast from "react-native-toast-message";
 //Context
 import EasyButton from "../../shared/StyleComponents/EasyButton";
-import {loginUser} from "../../functions/User";
-import {UserContext, UsersContext} from "../../context/UsersContext";
+import {loginUser} from "../../context/users/User";
+import {UserContext, UsersContext} from "../../context/users/UsersContext";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import jwtDecode from "jwt-decode";
 
@@ -22,12 +22,16 @@ const Login = (props) => {
     }, [])
 
     const handleSubmit= async () => {
+        console.log(email, password, "test");
         //todo add email regex
         if (email === "" || password === "") {
             setError("Please fill in your credentials");
         } else {
             await loginUser(email, password).then((resp,err) => {
                     if (err) {
+                        console.log('====================================');
+                        console.log(err);
+                        console.log('====================================');
                         setError( "Please provide correct credentials");
                         Toast.show({
                             topOffset: 60,
@@ -40,6 +44,7 @@ const Login = (props) => {
                             console.log(resp.data)
                             setUser(resp.data)
                             const token = resp.data.jwtToken;
+                            console.log(token)
                             AsyncStorage.setItem("jwt", token);
                             const decoded = jwtDecode(token);
                             console.log(decoded, "decoded")
@@ -49,7 +54,10 @@ const Login = (props) => {
                     }
                 }
             ) .catch((err) => {
-                console.log(err , " here");
+                console.log('====================================');
+                console.log(err);
+                console.log('====================================');
+                console.log(err.message , " here");
                 Toast.show({
                     topOffset: 60,
                     type: "error",
