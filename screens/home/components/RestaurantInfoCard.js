@@ -2,14 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View } from 'react-native';
 import { SvgXml } from "react-native-svg";
 import styled from "styled-components/native";
-import { Card } from "react-native-paper";
-
-const SearchContainer = styled.View`
-  padding: ${(props) => props.theme.space[3]};
-  position: absolute;
-  z-index: 999;
-  width: 100%;
-`;
+import { Card, IconButton } from "react-native-paper";
 
 const RestaurantInfoCard = ({restaurant={}}) => {
     const {
@@ -21,24 +14,56 @@ const RestaurantInfoCard = ({restaurant={}}) => {
         address = "100 some random street",
         isOpenNow = true,
         rating = 4,
+        distance = "613m",
+        price = "varies",
         isClosedTemporarily = true,
         placeId,
       } = restaurant;
-    
+
       const ratingArray = Array.from(new Array(Math.floor(rating)));
-    
+
 
 return (
     <Card elevation={5} style={styles.card}>
-        <Card.Cover key={name} style={styles.cover} source={{uri:photos[0]}} />
+        <Card.Cover key={name}  source={{uri:photos[0]}} />
         <Text>{name}</Text>
+        <AmountContainer>
+          <Text>5 left</Text>
+        </AmountContainer>
+        <HeartIconContainer>
+            <IconButton icon="heart" color="red" size={24} />
+        </HeartIconContainer>
+
+        <Card.Content>
+            <Text style={styles.distance}>{distance}</Text>
+        </Card.Content>
     </Card>
 )
 }
 
 const styles = StyleSheet.create({
     card : {backgroundColor:"white"},
-    cover : {padding:20, backgroundColor: "white"}
+    heartIcon: {
+        position: 'absolute',
+        top: 16,
+        right: 16,
+    },
 })
 
+const AmountContainer = styled(View)`
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 8px;
+  border-radius: 4px;
+`
+
+const HeartIconContainer = styled(View)`
+  position: absolute;
+  top: 16px;
+  right: 16px;
+`;
 export default RestaurantInfoCard;
